@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+   		 <!-- Configurações de Conexão com o Banco de Dados -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/teste</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">1w2e3r4</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        
+        <!-- Pool de Conexões (quantas conexões ao mesmo tempo -->
+        <property name="connection.pool_size">30</property>
+        
+        <!-- Gerenciamento do Contexto das Sessões -->
+        <property name="current_session_context_class">thread</property>
+        
+        <!-- Cache de Segundo Nível -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+		<!-- Mostra as SQLs Geradas -->
+		<property name="show_sql">true</property>
+
+		<!-- Cria as tabelas do banco de dados (Para criar as tabelas, altere para create)-->
+		<property name="hbm2ddl.auto">validate</property>
+
+		<!-- Mapeamento das classes que serão entidades no banco de dados -->
+		<mapping class="fateczl.testevideo.domain.Coisa" />
+    </session-factory>
+</hibernate-configuration>
